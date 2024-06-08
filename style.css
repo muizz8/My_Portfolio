@@ -1,12 +1,6 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-
+/* Root variables */
 :root {
   --dark-bg: rgba(15, 15, 15, 0.95);
   --spacing: 350px;
@@ -16,16 +10,25 @@ canvas {
   font-style: normal;
 }
 
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 
 main {
-  width: 100vw;
+  width: 100%;
   color: white;
   z-index: 99;
   position: absolute;
-  width: 100%;
-  margin: 0px auto;
-  padding: 120px 0px;
-  
+  margin: 0 auto;
+  padding: 120px 0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -36,51 +39,86 @@ h1, h2, h3, blockquote {
   font-style: normal;
 }
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
+header {
+  background: var(--dark-bg);
+  grid-column: 2 / span 5;
+  font-size: 2.5rem;
+  padding: 2rem;
+  margin-bottom: var(--spacing);
 }
 
+section {
+  grid-column: 2 / span 12;
+  padding: 1rem;
+  background: var(--dark-bg);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing);
+}
 
+blockquote {
+  margin: 0;
+  padding: 0;
+  grid-column: 2 / span 12;
+  margin-bottom: var(--spacing);
+}
 
+blockquote p {
+  color: black;
+  background-color: white;
+  font-size: 2rem;
+  display: inline;
+  line-height: 1.25;
+}
+
+.social-icon {
+  width: 50px; /* Adjust the size as needed */
+  height: 50px; /* Adjust the size as needed */
+}
+
+.left {
+  grid-column: 6 / span 7;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
   header {
-    background: var(--dark-bg);
-    grid-column: 2 / span 5;
-    font-size: 2.5rem;
-    padding: 2rem;
-    margin-bottom: var(--spacing);
+    grid-column: 2 / span 6;
   }
+}
 
-  section {
-    grid-column: 2 / 8;
-    padding: 1rem;
-    background: var(--dark-bg);
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-bottom: var(--spacing);
-  }
-
-  blockquote {
-    margin: 0;
-    padding: 0;
-    grid-column: 2 / span 9;
-    margin-bottom: var(--spacing);
-  }
-
-  blockquote p {
-    color: black;
-    background-color: white;
+@media (max-width: 992px) {
+  header {
     font-size: 2rem;
-    display: inline;
-    line-height: 1.25;
   }
-  .social-icon {
-    width: 50px; /* Adjust the size as needed */
-    height: 50px; /* Adjust the size as needed */
+}
+
+@media (max-width: 768px) {
+  header {
+    font-size: 1.5rem;
   }
-  
+
+  main {
+    padding: 80px 0;
+  }
 
   .left {
-    grid-column: 6 / 12;
+    grid-column: 2 / span 12;
   }
+}
+
+@media (max-width: 576px) {
+  header {
+    font-size: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  main {
+    padding: 60px 0;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
